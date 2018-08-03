@@ -1,0 +1,67 @@
+extend ../layout
+
+block head
+	link(rel="stylesheet" href="/css/novel.css")
+
+block content
+	<div class="container">
+		<div class="novel-detail clearfix">
+			<div class="novel-img"><img src="#{imgURL}" alt="#{name}"></div>
+			<div class="detail-w">
+				<h3>#{name}</h3>
+				<p>#{author}</p>
+				<p><strong>类别：</strong>#{category}</p>
+				<p><strong>状态：</strong><span class="finished-span">#{finished}</span></p>
+				<p><strong>最后更新：</strong>#{lastdate}</p>
+				<p><strong>总人气：</strong>#{clickNum}</p>
+				<!-- <p><strong>收藏数：</strong>#{starNum}</p> -->
+			</div>
+			<!-- <div class="star">
+				<h3>本书评价</h3>
+			</div> -->
+		</div>
+		<div class="novel-detail-tab">
+			<div class="click-hd clearfix">
+				<h3 class="active">作品介绍</h3>
+				<h3>作品目录</h3>
+				<h3>作品讨论区</h3>
+			</div>
+			<div class="click-bd">
+				<div class="item intro-bd">
+					<p>#{intro}</p>
+				</div>
+				<div class="item chapterlist-bd hide">
+					<ul class="chapterList clearfix" data-num="#{chapterNow}" data-cid="#{chapter_id}"></ul>
+				</div>
+				<div class="item viewslist-bd hide">
+					<ul>
+						each item in views
+							<li>
+								<div class="user"><img src="/img/profle.png" alt=""></div>
+								<div class="discuss-info">
+									<dl class="reader-reply">
+										<dt>
+											<span class="name">#{item.name}</span>
+											<span class="time">#{item.time}</span>
+										</dt>
+										<dd class="view-content">#{item.view}</dd>
+									</dl>
+								</div>
+							</li>
+					</ul>
+					<h5>发表评论</h5>
+					- if(isLogined){
+							<textarea id="view-content" class="form-control" name="" cols="100%" rows="3"></textarea>
+							<div class="clearfix"><input id="view-submit" class="btn btn-default" type="button" value="提交" style="float: right;" data-uid="#{userId}" data-user="#{user}" data-nid="#{nid}"></div>
+					- }else{
+							<div>
+								<p style="text-align: center;margin: 15px 0;">您还没有登录！请先<a href="/login">登录</a> 或 <a href="/signup">注册</a></p>
+							</div>
+					- }
+				</div>
+			</div>
+		</div>
+	</div>
+
+block footer
+	script(type='text/javascript' src='/js/novel.js')

@@ -1,0 +1,74 @@
+/*.main-cate ul li:hover,*/
+.main-item .novel-info .title:hover
+{color: red;transition: .3s;}
+.active{background-color: red;color: #fff;}
+.active a{color: #fff;}
+
+.conrainer{overflow: hidden;}
+main{
+	float: left;
+	width: 734px;
+	margin: 10px;
+}
+aside{
+	float: right;
+	width: 176px;
+	margin: 10px;
+}
+.main-cate{
+	background-color: #f9f9f9;
+	border-bottom: 1px solid #e5e5e5;
+	margin-bottom: 20px;
+}
+.main-cate ul{
+	
+}
+.main-cate ul li{
+	float: left;
+	height: 44px;
+	line-height: 44px;
+	padding: 0 10px;
+	cursor: pointer;
+}
+.main-item{
+	margin-bottom: 10px;
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+.novel-img-w{float: left;}
+.main-item .novel-img{
+	width: 112px;
+    height: 153px;
+}
+.main-item .novel-info{
+	padding-left: 138px;
+}
+.main-item .novel-info span{margin-right: 25px;}
+.main-item .novel-info .title{font-size: 18px;margin-right: 20px;}
+.main-item .novel-info .author,
+.main-item .novel-info .category{
+	font-size: 12px;
+	color: #888;
+}
+.main-item .novel-info .intro{
+	font-size: 14px;
+	height: 66px;
+	overflow: hidden;
+    margin-top: 17px;
+}
+.main-item .novel-info p:nth-child(3){margin-top: 19px;}
+.main-item .novel-info p:nth-child(3) span{
+	font-size: 14px;
+	color: #888;
+}
+.main-item .novel-info .collect{
+	float: right;
+	background-color: red;
+	border-radius: 4px;
+	color: #fff;
+	height: 26px;
+	width: 90px;
+	line-height: 26px;
+	text-align: center;
+	font-size: 14px;
+}

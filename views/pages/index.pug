@@ -1,0 +1,156 @@
+extend ../layout.pug
+
+block head
+	link(rel="stylesheet" href="/css/index.css")
+
+block content
+	<div class="main-nav-wrap">
+		<div class="main-nav clearfix">
+			<div class="types">作品分类</div>
+			<div><a href="/novel">全部作品</a></div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="box-wrap clearfix" style="margin-top: 0">
+			<div class="classify-list">
+				<dl>
+					<li><a href="/novel?cate=cyxs">穿越小说</a></li> 
+					<li><a href="/novel?cate=wyxs">网游小说</a></li> 
+					<li><a href="/novel?cate=xdyq">现代言情</a></li> 
+					<li><a href="/novel?cate=xhmf">玄幻魔法</a></li> 
+					<li><a href="/novel?cate=xxhx">仙侠幻想</a></li> 
+					<li><a href="/novel?cate=zchm">总裁豪门</a></li> 
+					<li><a href="/novel?cate=csxs">重生小说</a></li> 
+					<li><a href="/novel?cate=lsjk">历史架空</a></li> 
+				</dl>
+			</div>
+			<div class="banner">
+				<ul>
+					<li><a href="/novel/5ab612df80ce25266cbfb869"><img src="/img/banner/1.jpg" alt=""></a></li>
+					<li class="hide"><a href="/novel/5ac9ae7fb59c5e3ff0a82fcc"><img src="/img/banner/2.jpg" alt=""></a></li>
+					<li class="hide"><a href="/novel/5ac9bea1b166d63a6813ddb6"><img src="/img/banner/3.jpg" alt=""></a></li>
+					<li class="hide"><a href="/novel/5ac9c5ee34f05b38b4f826be"><img src="/img/banner/4.jpg" alt=""></a></li>
+					<li class="hide"><a href="/novel/5ac9c74934f05b38b4f826c0"><img src="/img/banner/5.jpg" alt=""></a></li>
+				</ul>
+				<div class="btns">
+					<span class="spans spans-active"></span>
+					<span class="spans"></span>
+					<span class="spans"></span>
+					<span class="spans"></span>
+					<span class="spans"></span>
+				</div>
+			</div>
+		</div>	
+
+		<div class="box-wrap">
+			<div class="box-hd clearfix"><h5>热门封推</h5></div>
+			<div class="box-bd">
+				<ul class="img-list clearfix">
+					- var i=0;
+					each item in cyxs_novel
+						- if(i==5) break;
+						- i++;
+						<li>
+							<a href="/novel/#{item._id}"><img src="#{item.imgURL}"></a>
+							<h5><a href="/novel/#{item._id}">#{item.name}</a></h5>
+							<p>#{item.author}</p>
+						</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="box-wrap clearfix" style="margin-top: 20px;">
+			<div class="main">
+				<div class="cate-box">
+					<div class="t"><h5>穿越小说</h5><p><a href="/novel?cate=cyxs">更多</a></p></div>
+					<div class="cate-box-w clearfix">
+						<div class="img-box">
+							<img src="#{cyxs_novel[0].imgURL}" alt="">
+							<p class="name">#{cyxs_novel[0].name}</p>
+							<p class="author">#{cyxs_novel[0].author}/著</p>
+						</div>
+						<div class="list">
+							<ul>
+							each item in cyxs_novel
+								<li><a href="/novel/#{item._id}">#{item.name}</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="cate-box">
+					<div class="t"><h5>历史架空</h5><p><a href="/novel?cate=lsjk">更多</a></p></div>
+					<div class="cate-box-w clearfix">
+						<div class="img-box">
+							<img src="#{lsjk_novel[0].imgURL}" alt="">
+							<p class="name">#{lsjk_novel[0].name}</p>
+							<p class="author">#{lsjk_novel[0].author}/著</p>
+						</div>
+						<div class="list">
+							<ul>
+							each item in lsjk_novel
+								<li><a href="/novel/#{item._id}">#{item.name}</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="cate-box">
+					<div class="t"><h5>仙侠幻想</h5><p><a href="/novel?cate=xxhx">更多</a></p></div>
+					<div class="cate-box-w clearfix">
+						<div class="img-box">
+							<img src="#{xxhx_novel[0].imgURL}" alt="">
+							<p class="name">#{xxhx_novel[0].name}</p>
+							<p class="author">#{xxhx_novel[0].author}/著</p>
+						</div>
+						<div class="list">
+							<ul>
+							each item in xxhx_novel
+								<li><a href="/novel/#{item._id}">#{item.name}</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="cate-box">
+					<div class="t"><h5>重生小说</h5><p><a href="/novel?cate=csxs">更多</a></p></div>
+					<div class="cate-box-w clearfix">
+						<div class="img-box">
+							<img src="#{csxs_novel[0].imgURL}" alt="">
+							<p class="name">#{csxs_novel[0].author}</p>
+							<p class="author">#{csxs_novel[0].author}/著</p>
+						</div>
+						<div class="list">
+							<ul>
+							each item in csxs_novel
+								<li><a href="/novel/#{item._id}">#{item.name}</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="aside">
+				<div class="click-rank">
+					<div class="clearfix"><div class="t"><h5>点击排行榜</h5></div></div>
+					<ul>
+						- var index=0;
+						each item in rank_novel
+							- index++;
+							- item.index=index;
+							<li class="rank-novel-item"><span class="top">#{item.index}</span><a href="/novel/#{item._id}">#{item.name}</a></li>
+					</ul>
+				</div>
+				<div class="last-rank">
+					<div class="clearfix"><div class="t"><h5>最新更新</h5></div></div>
+					<ul>
+						- var jndex=0;
+						each item in last_novel
+							- jndex++;
+							- item.jndex=jndex;
+							<li class="last-novel-item"><span class="top">#{item.jndex}</span><a href="/novel/#{item._id}">#{item.name}</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+block footer
+	script(src="/js/common.js")
+	script(src="/js/index.js")

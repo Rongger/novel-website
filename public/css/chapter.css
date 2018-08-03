@@ -1,0 +1,12 @@
+body{background-color: #f8f3e9;}
+.wrap{
+	background-color: #ebe5d8;
+	border: 1px solid #d9caca;
+    padding: 30px 50px 50px;
+    margin: 20px 0;
+}
+.chapter_title{
+	text-align: center;
+	line-height: 30px;
+	margin-bottom: 20px;
+}

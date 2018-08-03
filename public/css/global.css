@@ -1,0 +1,139 @@
+body,div,span,a,p,h2,h3,h4,h5{
+	padding:0;
+	margin:0;
+}
+a,a:hover{
+	text-decoration: none;
+}
+ul,dl{
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 0;
+	list-style: none;
+}
+.hidedata{display: none;}
+.clearfix{overflow:auto;_height:1%}
+.top-menu{
+	/*position: fixed;
+	top: 0px;
+	left: 0px;*/
+	width: 100%;
+	background-color: #ddd;
+	-webkit-box-shadow: 0 1px 5px black;
+}
+.container{
+	min-width: 950px;
+	width: 950px;
+	padding: 0;
+	margin: auto;
+	overflow: hidden;
+}
+.top-logo{
+	float: left;
+	line-height: 34px;
+	margin: 10px;
+}
+.search-bar{
+	float: right;
+	margin: 10px auto;
+}
+.search{
+	display: inline-block;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-right: none;
+    text-indent: 7px;
+    padding: 5px 0;
+}
+.search-btn{
+	height: 34px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-left: none;
+    background-color: #cfcfcf;
+}
+.guide-menu{
+	float: right;
+}
+.guide-menu .column{
+	float: left;
+	line-height: 34px;
+	margin: 10px 0 10px 10px;
+	padding-left: 10px;
+	border-left: 1px dotted #cdcdcd;
+}
+.guide-menu .bookcase{
+	overflow: hidden;
+}
+.guide-menu .bookcase .my-book{
+	float: left;
+}
+.guide-menu .more em i{
+	float: left;
+	width: 0;
+	height: 0;
+	border: 5px solid #ddd;
+	border-top-color: #000;
+	margin: 15px 0 0 5px;
+}
+.header{
+	
+	/*opacity: 0.5;*/
+	/*background-color: red;*/
+}
+
+
+.sidebar{
+	margin: 20px 0;
+}
+.sidebar-item{
+	display: block;
+	padding: 10px 0;
+	margin: 4px;  
+}
+.sidebar-item:hover{
+	padding-left: 5px;
+	color: red;
+	transition: 0.3s; 
+}
+.input-error{
+	display: none;
+	color: red;
+}
+.form-container{
+	width: 500px;
+	margin: 20px auto;
+	padding: 20px;
+}
+.msg-success{
+	display: none;
+	text-align: center;
+	margin: 20px 0;
+	font-size: 22px;
+}
+.main{
+
+}
+.footer{
+	height: 200px;
+	opacity: 0.5;
+	background-color: #6d4e17;
+}
+.footer .container .bot-dh{width: 600px;margin: 0 auto;margin-top: 55px;}
+.footer .container .bot-dh li{
+	float: left;
+	padding: 0 40px;
+	color: #fff;
+	border-right: 1px solid #fff;
+}
+.footer .container .bot-dh li:nth-child(4){
+	border-right: none;
+}
+.footer .container .infos{
+	margin: 0 auto;
+	font-size: 14px;
+	color: #fff;
+	width: 280px;
+	margin-top: 28px;
+}
+.footer .container .infos span:nth-child(2){float: right;}

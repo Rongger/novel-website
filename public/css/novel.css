@@ -1,0 +1,61 @@
+.active{border-bottom: 2px solid red;color: red;}
+.hide{display: none;}
+
+.novel-detail{padding: 10px;}
+.novel-detail .novel-img{float: left;margin-right:30px;}
+.novel-detail .novel-img img{
+	height: 287px;
+	width: 210px;
+}
+.novel-detail .detail-w{
+	display: inline-block;
+}
+.novel-detail .detail-w p{margin: 9px 0;}
+.novel-detail .star{
+	float: right;
+	width: 235px;
+}
+.novel-detail-tab{margin-top: 20px;}
+.novel-detail-tab .click-hd{
+	height: 36px;
+	width: 100%;
+	border-bottom: 1px solid #888;
+}
+.novel-detail-tab .click-hd h3{
+	float: left;
+	font-size: 18px;
+	text-align: center;
+	height: 35px;
+	line-height: 35px;
+	width: 175px;
+	cursor: pointer;
+}
+
+.intro-bd p{
+	line-height: 40px;
+	text-indent: 2em;
+	margin-top: 20px;
+}
+
+.chapterList li{
+	float: left;
+	width: 237px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 16px;
+	margin: 10px 0;
+	border-bottom: 1px solid #ccc;
+}
+
+.viewslist-bd li{
+	border-bottom: 1px solid #888;
+	margin-bottom: 10px;
+	padding: 15px 0;
+}
+.viewslist-bd .user{float: left;margin-right: 10px;}
+.viewslist-bd .user img{widows: 52px;height: 52px;}
+.viewslist-bd .discuss-info .reader-reply{}
+.viewslist-bd .discuss-info .reader-reply dt{overflow: hidden;}
+.viewslist-bd .discuss-info span{display: block;}
+.viewslist-bd .discuss-info .name{float: left;}
+.viewslist-bd .discuss-info .time, .viewslist-bd .discuss-info .floors{float: right;}

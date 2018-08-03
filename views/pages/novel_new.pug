@@ -1,0 +1,62 @@
+extend ../layout_admin
+
+block head
+	link(rel="stylesheet" href="/css/admin.css")
+
+block content
+
+	<div class="form-container" style="margin-top: 0;width: auto;padding: 50px 20px 0 180px;">	
+		<div class="form-group"><span>小说名称：</span><input class="form-control" id="novel_name" type="text"></div>
+		<div class="form-group"><span>作者：</span><input class="form-control" id="novel_author" type="text"></div>
+		<div class="form-group"><span>介绍：</span><input class="form-control" id="novel_intro" type="text"></div>
+		<div class="form-group">
+			<span>小说类别：</span>
+			<select class="form-control" name="" id="novel_category">
+				<option value="仙侠幻想">仙侠幻想</option>
+				<option value="穿越小说">穿越小说</option>
+				<option value="现代言情">现代言情</option>
+				<option value="玄幻魔法">玄幻魔法</option>
+				<option value="重生小说">重生小说</option>
+				<option value="总裁豪门">总裁豪门</option>
+				<option value="网游小说">网游小说</option>
+				<option value="历史架空">历史架空</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<span>图片路径：</span><input class="form-control" id="novel_imgURL" type="text" value="/img/novel-img/">
+		</div>
+		<textarea name="" class="form-control" id="edit_container" cols="30" rows="10"></textarea>
+		<button class="btn btn-default" id="update">上传</button>
+	</div>
+
+block footer
+	script(type='text/javascript' src='/js/admin.js')
+	script(type='text/javascript').
+		var $novel_update = $("#update"),
+			$novel_name = $("#novel_name"),
+			$novel_author = $('#novel_author'),
+			$novel_intro = $('#novel_intro'),
+			$novel_category = $('#novel_category'),
+			$chapter = $("#edit_container"),
+			$novel_imgURL = $("#novel_imgURL");
+		
+		$novel_update.on('click', function(e){
+			var data = {
+				'name': $novel_name.val(),
+				'author': $novel_author.val(),
+				'intro': $novel_intro.val(),
+				'category': $novel_category.val(),
+				'body': $chapter.val(),
+				'imgURL': $novel_imgURL.val(),
+			}
+			console.log(data);
+			$.ajax({
+				url: "/ajax/newChapter",
+				type: "POST",
+				async: true,
+				data: data,
+				success: function(){
+					console.log('ok');
+				}
+			})
+		})

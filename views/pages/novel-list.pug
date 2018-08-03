@@ -1,0 +1,51 @@
+extend ../layout.pug
+
+block head
+	link(rel="stylesheet" href="/css/novel-list.css")
+	script(src="/js/novel-list.js")
+
+block content
+	<div class="container clearfix">
+		<main>
+			<div class="main-cate">
+				<ul class="clearfix">
+					<li class="active"><a href="/novel">全部</a></li>
+					<li><a href="/novel?cate=cyxs">穿越小说</a></li> 
+					<li><a href="/novel?cate=wyxs">网游小说</a></li> 
+					<li><a href="/novel?cate=xdyq">现代言情</a></li> 
+					<li><a href="/novel?cate=xhmf">玄幻魔法</a></li> 
+					<li><a href="/novel?cate=xxhx">仙侠幻想</a></li> 
+					<li><a href="/novel?cate=zchm">总裁豪门</a></li> 
+					<li><a href="/novel?cate=csxs">重生小说</a></li> 
+					<li><a href="/novel?cate=lsjk">历史架空</a></li> 
+				</ul>
+			</div>
+			<div class="main-w">
+				<div class="hidedata">#{bookcaseArr}</div>
+				each item in novels
+					<div class="main-item clearfix">
+						<div class="novel-img-w"><img class="novel-img" src="#{item.imgURL}" alt="#{item.name}"></div>
+						<div class="novel-info">
+							<p class="clearfix">
+								<a href="/novel/#{item._id}" class="title">#{item.name}</a><span class="author">作者:&nbsp;&nbsp;#{item.author}</span><span class="category">[#{item.category}]</span>
+								<!-- <a class="collect" href="javascript:;" data-id="#{item._id}">加入书架</a> -->
+							</p>
+							<p class="intro">#{item.intro}</p>
+							<p><span>点击量: #{item.clickNum}</span><span>状态: <span class="finished-span">#{item.finished}</span></span><span>更新: #{item.lastdate}</span></p>
+						</div>
+					</div>
+			</div>
+		</main>		
+		<aside></aside>
+	</div>
+	script(type='text/javascript').	
+		$('.finished-span').each(function(index){
+			console.log($(this).text('连载中'))
+			if($(this).text()==false)
+				$(this).text('连载中');
+			else if($(this).text()==true)
+				$(this).text('已完结');	
+		})
+		
+
+

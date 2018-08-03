@@ -1,0 +1,18 @@
+.top-menu
+	.container
+		.top-logo
+			a(href="/") 首页
+		.guide-menu
+			- if(!isLogined){
+				div(class="loginaction column")
+					a(href="/login") 登录 
+					a(href="/signup") 注册
+			- }else{
+				div(class="column") 欢迎，#{user}
+				div(class="user" style="display: none") #{userId}
+				div(class="column")
+					a(href="/logout") 退出
+			- }
+		.search-bar
+			input(type="text" class="search")
+			input(class="search-btn" type="button" value="搜索")

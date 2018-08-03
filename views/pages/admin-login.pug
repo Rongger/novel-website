@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>后台管理系统登录</title>
+</head>
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/global.css">
+<link rel="stylesheet" href="/css/admin.css">
+<body>
+	- if(!isLogined){
+		<div class="bg">
+			<div class="login-w">
+				<h5>后台管理系统登录</h5>
+				<ul>
+					<li class="form-group">
+						<span>用户名</span>
+						<input type="text" id="name" class="form-control" name="name">
+					</li>
+					<li class="form-group">
+						<span>密码</span>
+						<input type="password" id="password" class="form-control" name="password">
+					</li>
+					<li class="form-group">
+						<input type="submit" id="submit" value="登录">
+					</li>
+				</ul>
+			</div>
+		</div>
+	- }else {
+			<div class="side-nav">
+				<div>管理员 #{admin} <a href="/admin/logout">退出</a></div>
+				<div class="nav-list">
+					<div class="navList-item">用户管理</div>
+					<div class="select-w">
+						<div class="yonghu select-item" style="background-color: #007bff; color: #fff;">用户删除</div>
+					</div>
+					<div class="navList-item">小说管理</div>
+					<div class="select-w">
+						<div class="luru select-item">小说录入</div>
+						<div class="shanchu select-item">小说删除</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-container user-change">
+				<table>
+					<tr>
+						<th>id</th>
+						<th>用户名</th>
+						<th>密码</th>
+						<th>电子邮箱</th>
+					</tr>
+					each item in user
+						<tr>
+							<td class="uid">#{item._id}</td>
+							<td>#{item.username}</td>
+							<td>#{item.password}</td>
+							<td>#{item.email}</td>
+							<td><a class="user-remove-btn" href="javascript:;">删除</a></td>
+						</tr>
+				</table>
+			</div>
+
+			<div class="form-container" style="display: none;">	
+				<div class="form-group"><span>小说名称：</span><input class="form-control" id="novel_name" type="text"></div>
+				<div class="form-group"><span>作者：</span><input class="form-control" id="novel_author" type="text"></div>
+				<div class="form-group"><span>介绍：</span><input class="form-control" id="novel_intro" type="text"></div>
+				<div class="form-group">
+					<span>小说类别：</span>
+					<select class="form-control" name="" id="novel_category">
+						<option value="仙侠幻想">仙侠幻想</option>
+						<option value="穿越小说">穿越小说</option>
+						<option value="现代言情">现代言情</option>
+						<option value="玄幻魔法">玄幻魔法</option>
+						<option value="重生小说">重生小说</option>
+						<option value="总裁豪门">总裁豪门</option>
+						<option value="网游小说">网游小说</option>
+						<option value="历史架空">历史架空</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<span>图片路径：</span><input class="form-control" id="novel_imgURL" type="text" value="/img/novel-img/">
+				</div>
+				<textarea name="" class="form-control" id="edit_container" cols="30" rows="10"></textarea>
+				<button class="btn btn-default" id="update">上传</button>
+			</div>
+
+			<div class="form-container novel-change" style="display: none;">
+				<table>
+					<tr>
+						<th>id</th>
+						<th>小说名</th>
+						<th>作者</th>
+						<th>更新时间</th>
+						<th>种类</th>
+						<th>章节id</th>
+						<th>章节数</th>
+					</tr>
+					each item in novel
+						<tr>
+							<td class="nid">#{item._id}</td>
+							<td>#{item.name}</td>
+							<td>#{item.author}</td>
+							<td>#{item.lastdate}</td>
+							<td>#{item.category}</td>
+							<td>#{item.chapter_id}</td>
+							<td>#{item.chapterNow}</td>
+							<td><a class="detail-btn" href="javascript:;">详情</a></td>
+							<td><a class="remove-btn" href="javascript:;">删除</a></td>
+						</tr>
+				</table>
+			</div>
+
+			
+	- }
+</body>
+<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/admin.js"></script>
+script(type='text/javascript').
+		var $novel_update = $("#update"),
+			$novel_name = $("#novel_name"),
+			$novel_author = $('#novel_author'),
+			$novel_intro = $('#novel_intro'),
+			$novel_category = $('#novel_category'),
+			$chapter = $("#edit_container"),
+			$novel_imgURL = $("#novel_imgURL");
+		
+		$novel_update.on('click', function(e){
+			var data = {
+				'name': $novel_name.val(),
+				'author': $novel_author.val(),
+				'intro': $novel_intro.val(),
+				'category': $novel_category.val(),
+				'body': $chapter.val(),
+				'imgURL': $novel_imgURL.val(),
+			}
+			console.log(data);
+			$.ajax({
+				url: "/ajax/newChapter",
+				type: "POST",
+				async: true,
+				data: data,
+				success: function(){
+					console.log('ok');
+				}
+			})
+		})
+</html>

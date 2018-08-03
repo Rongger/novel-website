@@ -1,0 +1,32 @@
+extend ../layout.pug
+
+block head
+	link(rel="stylesheet" href="/css/novel-list.css")
+	script(src="/js/novel-list.js")
+
+block content
+	<div class="container clearfix">
+		<main>
+			<div>
+				<p style="text-align: center;color: #ccc;margin: 10px auto;padding-bottom: 10px;border-bottom: 1px dashed #ccc;">共找到<span>#{num}</span>个相关结果</p>
+			</div>
+			<div class="main-w">
+				<div class="hidedata">#{bookcaseArr}</div>
+				each item in novels
+					<div class="main-item clearfix">
+						<div class="novel-img-w"><img class="novel-img" src="#{item.imgURL}" alt="#{item.name}"></div>
+						<div class="novel-info">
+							<p class="clearfix">
+								<a href="/novel/#{item._id}" class="title">#{item.name}</a><span class="author">作者:&nbsp;&nbsp;#{item.author}</span><span class="category">[#{item.category}]</span>
+								<!-- <a class="collect" href="javascript:;" data-id="#{item._id}">加入书架</a> -->
+							</p>
+							<p class="intro">#{item.intro}</p>
+							<p><span>点击量: #{item.clickNum}</span><span>订阅人气: #{item.starNum}</span><span>更新: #{item.lastdate}</span></p>
+						</div>
+					</div>
+			</div>
+		</main>		
+		<aside></aside>
+	</div>
+
+
